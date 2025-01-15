@@ -32,6 +32,27 @@ Example Responses:
 
 Add the required logic below to complete the API.
 */
+app.get("/assistant/greet/",(req,res)=>{
+  const name = req.query.name
+  const date = new Date().getDay()
+  const dayMessages = [
+    "Have a wonderful day!",
+    "Happy Monday! Start your week with energy!",
+    "Have a wonderful day!",
+    "Have a wonderful day!",
+    "Have a wonderful day!",
+    "It's Friday! The weekend is near!",
+    "Have a wonderful day!"
+  ];
+  const msg = res.json({
+    "welcomeMessage": `Hello, ${name}! Welcome to our assistant app!`,
+  "dayMessage": dayMessages[date]
+  })
+
+  res.send(msg)
+  
+ })
+
 
 const PORT = 3000;
 app.listen(PORT, () => {
